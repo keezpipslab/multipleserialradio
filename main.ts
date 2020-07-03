@@ -21,6 +21,26 @@ serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
     } else if (_message.substr(0, 1) == "z") {
         radio.sendString("z")
         led.plotBrightness(2, 4, 255)
+    } else if (_message.substr(0, 1) == "0") {
+        radioNummer = 0
+        radio.setGroup(radioNummer)
+        basic.showString("" + (radioNummer))
+    } else if (_message.substr(0, 1) == "1") {
+        radioNummer = 1
+        radio.setGroup(radioNummer)
+        basic.showString("" + (radioNummer))
+    } else if (_message.substr(0, 1) == "2") {
+        radioNummer = 2
+        radio.setGroup(radioNummer)
+        basic.showString("" + (radioNummer))
+    } else if (_message.substr(0, 1) == "3") {
+        radioNummer = 3
+        radio.setGroup(radioNummer)
+        basic.showString("" + (radioNummer))
+    } else if (_message.substr(0, 1) == "4") {
+        radioNummer = 4
+        radio.setGroup(radioNummer)
+        basic.showString("" + (radioNummer))
     } else {
         radio.sendString("r")
         led.plotBrightness(0, 2, 0)
@@ -29,8 +49,8 @@ serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
         led.plotBrightness(2, 4, 0)
     }
 })
-let _message = ""
 let radioNummer = 0
+let _message = ""
 let _id = 0
 if (control.deviceSerialNumber() == 1395126174) {
     _id = 1
@@ -42,23 +62,17 @@ if (control.deviceSerialNumber() == 1395126174) {
     _id = 4
 } else if (control.deviceSerialNumber() == 658422676) {
     _id = 5
-    radioNummer = 0
 } else if (control.deviceSerialNumber() == 734048875) {
     _id = 6
-    radioNummer = 1
 } else if (control.deviceSerialNumber() == 940218175) {
     _id = 0
 } else if (control.deviceSerialNumber() == -1103148995) {
     _id = 7
-    radioNummer = 2
 } else if (control.deviceSerialNumber() == 1589646707) {
     _id = 8
-    radioNummer = 3
 } else if (control.deviceSerialNumber() == -1897610602) {
     _id = 9
-    radioNummer = 4
 } else {
     _id = -1
 }
 basic.showString("" + (_id))
-radio.setGroup(radioNummer)
