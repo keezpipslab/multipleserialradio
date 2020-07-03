@@ -1,5 +1,5 @@
 {
-    "name": "MultipleSerialRadio",
+    "name": "MultipleSerialRadioRole",
     "description": "",
     "dependencies": {
         "core": "*",
